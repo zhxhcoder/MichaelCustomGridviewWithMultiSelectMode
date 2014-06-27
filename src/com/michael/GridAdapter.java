@@ -44,6 +44,11 @@ public class GridAdapter extends BaseAdapter {
         // TODO Auto-generated method stub
         return position;
     }
+    public String getStrItem(int position) {
+        // TODO Auto-generated method stub
+        return String.valueOf(mImgIds[position]);
+    }
+
 
     @SuppressWarnings("deprecation")
     @Override
@@ -60,6 +65,8 @@ public class GridAdapter extends BaseAdapter {
         item.setImgResId(getItem(position));
         item.setChecked(mSelectMap.get(position) == null ? false
                 : mSelectMap.get(position));
+        //TODO michael
+        item.setTitleText(getStrItem(position));
 
 
 /*

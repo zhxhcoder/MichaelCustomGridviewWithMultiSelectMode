@@ -10,12 +10,14 @@ import android.view.View;
 import android.widget.Checkable;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 public class GridItem extends RelativeLayout implements Checkable {
 
     private Context mContext;
     private boolean mChecked;//判断该选项是否被选上的标志量
     private ImageView mImgView = null;
+    private TextView mTxView = null;
     private ImageView mSecletView = null;
 
     public GridItem(Context context) {
@@ -33,6 +35,7 @@ public class GridItem extends RelativeLayout implements Checkable {
         LayoutInflater.from(mContext).inflate(R.layout.gridview_item, this);
         mImgView = (ImageView) findViewById(R.id.img_view);
         mSecletView = (ImageView) findViewById(R.id.select);
+        mTxView = (TextView) findViewById(R.id.title);
     }
 
     @Override
@@ -60,5 +63,9 @@ public class GridItem extends RelativeLayout implements Checkable {
             mImgView.setBackgroundResource(resId);//设置背景
         }
     }
-
+    public void setTitleText(String resId) {
+        if (mTxView != null) {
+            mTxView.setText(resId);//设置题目
+        }
+    }
 }
