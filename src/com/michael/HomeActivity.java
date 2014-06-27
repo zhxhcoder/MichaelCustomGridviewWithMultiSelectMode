@@ -6,7 +6,6 @@ import android.view.*;
 import android.widget.AbsListView.MultiChoiceModeListener;
 import android.widget.GridView;
 import android.widget.TextView;
-import com.kiritor.R;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -89,7 +88,7 @@ public class HomeActivity extends Activity implements MultiChoiceModeListener {
         // 得到布局文件的View
         View v = LayoutInflater.from(this).inflate(R.layout.actionbar_layout,
                 null);
-        mActionText = (TextView) v.findViewById(R.id.action_text);
+        mActionText = (TextView) v.findViewById(com.michael.R.id.action_text);
         // 设置显示内容为GridView选中的项目个数
         mActionText.setText(formatString(mGridView.getCheckedItemCount()));
         // 设置动作条的视图

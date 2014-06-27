@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Checkable;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import com.kiritor.R;
 
 public class GridItem extends RelativeLayout implements Checkable {
 
