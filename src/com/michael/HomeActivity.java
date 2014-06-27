@@ -106,13 +106,14 @@ public class HomeActivity extends Activity implements MultiChoiceModeListener {
         deleteView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO michael
-
+                //TODO michael 不成功
+                List<Integer> tempList=new ArrayList<Integer>();
                 for (Integer key : mSelectMap.keySet()) {
-                    if(mSelectMap.get(key)){
-                        mImgIdList.remove(key);
+                    if(!mSelectMap.get(key)){
+                        tempList.add(mImgIdList.get(key));
                     }
                 }
+                mImgIdList=tempList;
 
                 Toast.makeText(HomeActivity.this,"删除成功数："+(95-mImgIdList.size()),0).show();
 
