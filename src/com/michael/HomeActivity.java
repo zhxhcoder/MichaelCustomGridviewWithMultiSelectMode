@@ -9,8 +9,8 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class HomeActivity extends Activity implements MultiChoiceModeListener {
 
@@ -24,7 +24,9 @@ public class HomeActivity extends Activity implements MultiChoiceModeListener {
     private static final int MENU_UNSELECT_ALL = MENU_SELECT_ALL + 1;
     private Map<Integer, Boolean> mSelectMap = new HashMap<Integer, Boolean>();
 
-    private int[] mImgIds = new int[]{R.drawable.img_1, R.drawable.img_2,
+    private List<Integer> mImgIdList;
+
+    private Integer[] mImgIds = new Integer[]{R.drawable.img_1, R.drawable.img_2,
             R.drawable.img_3, R.drawable.img_4, R.drawable.img_5,
             R.drawable.img_6, R.drawable.img_7, R.drawable.img_8,
             R.drawable.img_9, R.drawable.img_1, R.drawable.img_2,
@@ -66,12 +68,19 @@ public class HomeActivity extends Activity implements MultiChoiceModeListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
 
+        mImgIdList= new ArrayList<Integer>();
+        mImgIdList= Arrays.asList(mImgIds);
+
         mGridView = (NoScrollGridView) findViewById(R.id.gridview);
         mGridView.setChoiceMode(GridView.CHOICE_MODE_MULTIPLE_MODAL);// 设置为多选模式
         mGridAdapter = new GridAdapter(this);
-        mGridAdapter.setAdapterData(mImgIds, mSelectMap);
+        mGridAdapter.setAdapterData(mImgIdList, mSelectMap);
+        mGridAdapter.notifyDataSetChanged();
+
+        mGridView.invalidateViews();
         mGridView.setAdapter(mGridAdapter);// 数据适配
         mGridView.setMultiChoiceModeListener(this);// 设置多选模式监听器
+
 
 
         deleteView= (TextView) findViewById(R.id.deleteView);
@@ -98,7 +107,14 @@ public class HomeActivity extends Activity implements MultiChoiceModeListener {
             @Override
             public void onClick(View view) {
                 //TODO michael
-                Toast.makeText(HomeActivity.this,"删除成功",0).show();
+
+                for (Integer key : mSelectMap.keySet()) {
+                    if(mSelectMap.get(key)){
+                        mImgIdList.remove(key);
+                    }
+                }
+
+                Toast.makeText(HomeActivity.this,"删除成功数："+(95-mImgIdList.size()),0).show();
 
             }
         });

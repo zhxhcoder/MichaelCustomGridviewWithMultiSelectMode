@@ -7,6 +7,8 @@ import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,28 +17,28 @@ import java.util.Map;
 public class GridAdapter extends BaseAdapter {
 
     private Context mContext;
-    private int[] mImgIds;
+    private List<Integer> mImgIdList;
     private Map<Integer, Boolean> mSelectMap;
 
     public GridAdapter(Context ctx) {
         mContext = ctx;
     }
 
-    public void setAdapterData(int[] mImgIds, Map<Integer, Boolean> mSelectMap) {
-        this.mImgIds = mImgIds;
+    public void setAdapterData(List<Integer> mImgIdList, Map<Integer, Boolean> mSelectMap) {
+        this.mImgIdList = mImgIdList;
         this.mSelectMap = mSelectMap;
     }
 
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
-        return mImgIds.length;
+        return mImgIdList.size();
     }
 
     @Override
     public Integer getItem(int position) {
         // TODO Auto-generated method stub
-        return Integer.valueOf(mImgIds[position]);
+        return mImgIdList.get(position);
     }
 
     @Override
@@ -44,9 +46,10 @@ public class GridAdapter extends BaseAdapter {
         // TODO Auto-generated method stub
         return position;
     }
-    public String getStrItem(int position) {
+
+    public String getStrTitle(int position) {
         // TODO Auto-generated method stub
-        return String.valueOf(mImgIds[position]);
+        return String.valueOf(mImgIdList.get(position));
     }
 
 
@@ -66,7 +69,7 @@ public class GridAdapter extends BaseAdapter {
         item.setChecked(mSelectMap.get(position) == null ? false
                 : mSelectMap.get(position));
         //TODO michael
-        item.setTitleText(getStrItem(position));
+        item.setTitleText(getStrTitle(position));
 
 
 /*
