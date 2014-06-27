@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.*;
 import android.widget.AbsListView.MultiChoiceModeListener;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -70,11 +72,24 @@ public class HomeActivity extends Activity implements MultiChoiceModeListener {
         mGridView.setMultiChoiceModeListener(this);// 设置多选模式监听器
 
 
-/*        mListView = (NoScrollListView) findViewById(R.id.listview);
+/*
+        //TODO michael 也可以放进去一个特殊的listView
+        mListView = (NoScrollListView) findViewById(R.id.listview);
         mListView.setChoiceMode(GridView.CHOICE_MODE_MULTIPLE_MODAL);// 设置为多选模式
         mGridAdapter = new GridAdapter(this);
         mGridAdapter.setAdapterData(mImgIds, null);
         mListView.setAdapter(mGridAdapter);// 数据适配*/
+
+
+        //TODO michael 也可以放到Adapter的getView函数中（但长按事件就被覆盖了）
+        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //TODO michael
+                Toast.makeText(HomeActivity.this,"选中position:"+i,0).show();
+            }
+        });
+
 
 
     }

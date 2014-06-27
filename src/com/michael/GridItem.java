@@ -1,6 +1,6 @@
 package com.michael;
 /**
- * @author Kiritor
+ * @author Michael
  * 实现自己的View继承Checable接口*/
 
 import android.content.Context;

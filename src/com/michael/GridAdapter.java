@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
+import android.widget.Toast;
 
 import java.util.Map;
 
@@ -47,7 +48,7 @@ public class GridAdapter extends BaseAdapter {
     @SuppressWarnings("deprecation")
     @Override
         /* 得到View */
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         GridItem item;
         if (convertView == null) {
             item = new GridItem(mContext);
@@ -59,6 +60,24 @@ public class GridAdapter extends BaseAdapter {
         item.setImgResId(getItem(position));
         item.setChecked(mSelectMap.get(position) == null ? false
                 : mSelectMap.get(position));
+
+
+/*
+        //TODO 放这里长按多选就无法进行
+        item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(mContext, "选中position:" + position, 0).show();
+
+            }
+        });
+*/
+
+
+
+
+
+
         return item;
     }
 }
