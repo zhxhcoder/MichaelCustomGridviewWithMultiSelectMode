@@ -9,6 +9,14 @@
                     android:background="@android:color/holo_green_light">
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
+                  android:text="删除"
+                  android:textColor="@android:color/white"
+                  android:textSize="18sp"
+                  android:layout_marginLeft="14dp"
+                  android:layout_centerVertical="true"
+                  android:id="@+id/deleteView"/>
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
                   android:text="寻找好友"
                   android:textColor="@android:color/white"
                   android:textSize="18sp"

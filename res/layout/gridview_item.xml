@@ -1,21 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
 
     <ImageView
-        android:id="@+id/img_view"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:scaleType="fitXY" />
+            android:id="@+id/img_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:background="@android:color/holo_green_light"
+            android:scaleType="fitXY"/>
 
     <ImageView
-        android:id="@+id/select"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/icon_choice"
-        android:visibility="gone" />
-      <!-- 这里是当该图片被选上的时候打上小勾的,因此起初是隐藏不显示的 -->
+            android:id="@+id/select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/icon_choice"
+            android:visibility="gone"/>
+    <!-- 这里是当该图片被选上的时候打上小勾的,因此起初是隐藏不显示的 -->
+
+    <TextView
+            android:id="@+id/title"
+            android:padding="10dp"
+            android:background="@android:color/holo_orange_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="图片题目"
+            android:layout_below="@+id/img_view"
+            />
+<!--    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="button"
+            android:layout_below="@+id/img_view"
+            android:layout_toRightOf="@+id/title"/>-->
 </RelativeLayout>

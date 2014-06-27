@@ -18,6 +18,8 @@ public class HomeActivity extends Activity implements MultiChoiceModeListener {
     private NoScrollListView mListView;
     private GridAdapter mGridAdapter;
     private TextView mActionText;
+    private TextView deleteView;
+
     private static final int MENU_SELECT_ALL = 0;
     private static final int MENU_UNSELECT_ALL = MENU_SELECT_ALL + 1;
     private Map<Integer, Boolean> mSelectMap = new HashMap<Integer, Boolean>();
@@ -72,6 +74,7 @@ public class HomeActivity extends Activity implements MultiChoiceModeListener {
         mGridView.setMultiChoiceModeListener(this);// 设置多选模式监听器
 
 
+        deleteView= (TextView) findViewById(R.id.deleteView);
 /*
         //TODO michael 也可以放进去一个特殊的listView
         mListView = (NoScrollListView) findViewById(R.id.listview);
@@ -87,9 +90,18 @@ public class HomeActivity extends Activity implements MultiChoiceModeListener {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 //TODO michael
                 Toast.makeText(HomeActivity.this,"选中position:"+i,0).show();
+
             }
         });
 
+        deleteView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO michael
+                Toast.makeText(HomeActivity.this,"删除成功",0).show();
+
+            }
+        });
 
 
     }
