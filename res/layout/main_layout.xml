@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:background="@android:color/holo_green_light">
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="寻找好友"
+                  android:textColor="@android:color/white"
+                  android:textSize="18sp"
+                  android:layout_centerInParent="true"
+                  android:id="@+id/textView"/>
+        <TextView android:id="@+id/friend_add_back"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="完成"
+                  android:textSize="18sp"
+                  android:layout_alignParentRight="true"
+                  android:textColor="@android:color/white"
+                  android:layout_marginRight="14dp"
+                  android:layout_alignTop="@+id/textView"/>
+    </RelativeLayout>
+
+
+    <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scrollbars="vertical"
+            android:background="@null"
+            android:id="@+id/scrollView">
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:alpha="0.3"
+                      android:text="这是gridview上面一个测试Michael"/>
+
+            <com.michael.NoScrollGridView
+                    android:id="@+id/gridview"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:columnWidth="75dip"
+                    android:gravity="center"
+                    android:horizontalSpacing="2dip"
+                    android:numColumns="3"
+                    android:verticalSpacing="2dip"
+                    android:layout_marginTop="20dip"/>
+            <com.michael.NoScrollListView android:layout_width="fill_parent"
+                                          android:layout_height="wrap_content"
+                                          android:id="@+id/listview"
+                    />
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:alpha="0.3"
+                      android:text="这是gridview\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+                  \n\n\n\nn\nn\n\n\n\n\nn\n\n\n\n\n\n\
+                  n\n\n\n\n\nn\n\n
+                  \n\n\n\nn\n\n\n\n\n\n\n\n\n\n\n\n\n\nn\n\n\n\n\n
+                  \n\n\n\nn\n\n\n\
+                  n\n\nn\n\n\n\n\n\n\n\n\n\n\n\nn\n\n\n
+                  \n\n\n\n\n\nn\n\n\n
+                  \n\n\n\n\n\n\n\n\n\nn\n\n\n\n\n\n\n\n\n\n下面一个测试Michael"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
